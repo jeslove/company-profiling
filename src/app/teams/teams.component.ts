@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as Aos from 'aos';
+import { DataServicesService } from '../data-services.service';
+import { faBriefcase } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-teams',
@@ -8,7 +10,11 @@ import * as Aos from 'aos';
 })
 export class TeamsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dataServices: DataServicesService) { }
+
+  dataPath = this.dataServices.dataServices;
+
+  faCoffee =faBriefcase;
 
   ngOnInit(): void {
     Aos.init();

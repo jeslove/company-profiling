@@ -12,133 +12,21 @@
 
       <div class="row">
 
-        <div class="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+        <div class="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100"
+          *ngFor="let product of dataFile" style="margin-top: 10px; margin-bottom: 10px;">
           <div class="icon-box">
             <div class="icon"><i class="bx bxl-dribbble"></i></div>
-            <h4><a href="">SCHOOL MANAGEMENT (ERP)</a></h4>
-            <p>The super school management for all schools</p>
-			<h4>Main features include:</h4>
-			<ul>
-				<li>Teachers management</li>
-				<li>Parent management</li>
-				<li>Hr management</li>
-				<li>Student management</li>
-				<li>Accountent</li>
-				<li>Event management</li>
-				<li>Hostel management</li>
-				<li>Etc...</li>
-			</ul>
-			<br>
-			<a href="https://erp.aptechghana.com/" target="_blank" class="btn btn-success">Demo Link</a>
+            <h4><a href="">{{product.name}}</a></h4>
+            <p>{{product.description}}</p>
+            <h4>Main features include:</h4>
+            <ul>
+			<li *ngFor="let item of product.features">{{item.filename}}</li>
+            </ul>
+            <br>
+            <a href="{{product.pathLinks}}" target="_blank" class="btn btn-success">Demo Link</a>
           </div>
         </div>
-
-        <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
-          <div class="icon-box">
-            <div class="icon"><i class="bx bx-file"></i></div>
-            <h4><a href="">RENT MANAGEMENT</a></h4>
-            <p>The ultimate super one for all software for rents</p>
-			<h4>Main features include:</h4>
-			<ul>
-				<li>Landlord management</li>
-				<li>Tenant management</li>
-				<li>Bill management</li>
-				<li>Reporting management</li>
-				<li>Auto Messaging</li>
-				<li>House management</li>
-				<li>Etc....</li>
-			</ul>
-			<br>
-			<a href="https://rent.pentmart.com/" target="_blank" class="btn btn-success">Demo Link</a>
-          </div>
-        </div>
-
-        <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="300">
-          <div class="icon-box">
-            <div class="icon"><i class="bx bx-tachometer"></i></div>
-            <h4><a href="">POS (Point Of Sell)</a></h4>
-            <p>The ultimate super POS software to get your business growing (NON-STOP) </p>
-			<h4>Main features Include:</h4>
-			<ul>
-				<li>Business management</li>
-				<li>Purchases</li>
-				<li>Suppliers & Customers</li>
-				<li>Sale & POS Terminal</li>
-				<li>Reports</li>
-				<li>Product Management</li>
-			</ul>
-			<br>
-			<a href="https://pos.ultimatefosters.com/products/create" target="_blank" class="btn btn-success">Demo Link</a>
-          </div>
-        </div>
-
-        <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="400">
-          <div class="icon-box">
-            <div class="icon"><i class="bx bx-layer"></i></div>
-            <h4><a href="">HOSPITAL MANAGEMENT</a></h4>
-            <p>The ultimate hospital software (ERP) super software</p>
-			<h4>Main features include:</h4>
-			<ul>
-				<li>Hr management</li>
-				<li>OPD management</li>
-				<li>Accountent</li>
-				<li>Nurses management</li>
-				<li>Doctors management</li>
-				<li>IPD management</li>
-				<li>Theater management</li>
-				<li>Pharmacy management</li>
-				<li>Etc....</li>
-			</ul>
-			<br>
-			<a href="" class="btn btn-success">Demo Link</a>
-			
-          </div>
-        </div>
-
       </div>
-	  	<br>
-	  <div class="row">
-		<div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="400">
-			<div class="icon-box">
-			  <div class="icon"><i class="bx bx-layer"></i></div>
-			  <h4><a href="">E-commerce business</a></h4>
-			  <p>Product scopes selling and buying system (Local artworks)</p>
-			  <h4>Main features include:</h4>
-			  <ul>
-				  <li>Payment gateway</li>
-				  <li>User management</li>
-				  <li>Suppliers management</li>
-				  <li>Stock management</li>
-				  <li>Wishlist</li>
-				  <li>Add to cart</li>
-				  <li>Product management</li>
-				  <li>Etc...</li>
-			  </ul>
-			  <br>
-			  <a href="https://africcraft.com" target="_blank" class="btn btn-success">Demo Link</a>
-			  
-			</div>
-		</div>
-		<div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="400">
-			<div class="icon-box">
-			  <div class="icon"><i class="bx bx-layer"></i></div>
-			  <h4><a href="">Freelance Platform</a></h4>
-			  <p>The ultimate freelance platform</p>
-			  <h4>Main features include:</h4>
-			  <ul>
-				  <li>Product selling</li>
-				  <li>Car selling</li>
-				  <li>Car rental</li>
-				  <li>Freelancing</li>
-				  <li>Job portal</li>
-			  </ul>
-			  <br>
-			  <a href="https://pentmart.com" target="_blank" class="btn btn-success">Demo Link</a>
-			  
-			</div>
-		</div>
-	  </div>
-
     </div>
   </section><!-- End Services Section -->
 </main>

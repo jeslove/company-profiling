@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as Aos from 'aos';
+import { DataServicesService } from 'src/app/data-services.service';
 
 @Component({
   selector: 'app-product-list',
@@ -8,10 +9,16 @@ import * as Aos from 'aos';
 })
 export class ProductListComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dataBox: DataServicesService) { }
 
-  ngOnInit(): void {
+  dataFile: any;
+
+  ngOnInit(): void
+  {
     Aos.init();
+
+    this.dataFile = this.dataBox.peoductData;
+
   }
 
 }

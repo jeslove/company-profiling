@@ -12,6 +12,10 @@ import { ProductDetailsComponent } from './products/product-details/product-deta
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { TeamsComponent } from './teams/teams.component';
 import { FooterComponent } from './footer/footer.component';
+import { DataServicesService } from './data-services.service';
+import { FontAwesomeModule,FaIconLibrary } from '@fortawesome/angular-fontawesome';
+import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+
 
 @NgModule({
   declarations: [
@@ -28,9 +32,19 @@ import { FooterComponent } from './footer/footer.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FontAwesomeModule
   ],
-  providers: [],
+  providers: [
+    DataServicesService
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(library: FaIconLibrary) {
+    // Add an icon to the library for convenient access in other components
+    library.addIcons(faCoffee);
+  }
+ }
+
+
