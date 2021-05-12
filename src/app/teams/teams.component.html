@@ -12,17 +12,17 @@
 
       <div class="row">
 
-        <div class="col-lg-6" *ngFor="let item of dataPath" style="margin-bottom: 10px; margin-top: 10px;">
+        <div class="col-lg-6" *ngFor="let item of product" style="margin-top: 10px;margin-bottom: 10px;">
           <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="100">
-            <div class="pic"><img src="{{item.ImageFile}}" class="img-fluid" alt="" draggable="false"></div>
+            <div class="pic"><img [src]="item.users.filename" class="img-fluid" alt=""></div>
             <div class="member-info">
-              <h4>{{item.name}}</h4>
-              <span>{{item.possition}}</span>
-              <p>{{item.description}}</p>
-              <div class="social">
-                <div *ngFor="let smedia of item.followers">
-                  <a href="{{smedia.links}}" target="_blank" style="margin:5px;"><fa-icon [icon]="faCoffee"></fa-icon></a>
-                </div>
+              <h4>{{item.users.fname}}</h4>
+              <span>{{item.users.position}}</span>
+              <p>{{item.users.description}}</p>
+              <div class="social" *ngIf="item.followers">
+                  <a href="{{item.followers.facebook}}" target="_blank"><i class="ri-twitter-fill"><fa-icon [icon]="faCoffee"></fa-icon></i></a>
+                  <a href="{{item.followers.instagram}}" target="_blank"><i class="ri-twitter-fill"><fa-icon [icon]="faCoffee"></fa-icon></i></a>
+                  <a href="{{item.followers.linkendin}}" target="_blank"><i class="ri-twitter-fill"><fa-icon [icon]="faCoffee"></fa-icon></i></a>
               </div>
             </div>
           </div>

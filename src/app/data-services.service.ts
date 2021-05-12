@@ -1,54 +1,58 @@
 import { Injectable } from '@angular/core';
 
+import {HttpClient, HttpHandler } from '@angular/common/http';
+
+import { Profiling } from './profiling';
+
 @Injectable({
   providedIn: 'root'
 })
 export class DataServicesService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  dataServices =[
-    {id:1,name:'Andy Kofi Tekyi',possition:'Chief Executive Officer (CEO)',description:'Explicabo voluptatem mollitia et repellat qui dolorum quasi',
-    ImageFile:'../../assets/team/team-1.jpg', 
-    followers:[
-      {socialMedia:'facebook',links:'https://m.facebook.com/positivomobile',iconslink:''},
-      {socialMedia:'instergram',links:'https://www.instagram.com/positivo_inc/',iconslink:''},
-      {socialMedia:'linkind',links:' https://www.linkedin.com/in/kofi-takyi-8b4478a4/',iconslink:''}
-    ]},
+  // dataServices =[
+  //   {id:1,name:'Andy Kofi Tekyi',possition:'Chief Executive Officer (CEO)',description:'Explicabo voluptatem mollitia et repellat qui dolorum quasi',
+  //   ImageFile:'../../assets/team/team-1.jpg', 
+  //   followers:[
+  //     {socialMedia:'facebook',links:'https://m.facebook.com/positivomobile',iconslink:''},
+  //     {socialMedia:'instergram',links:'https://www.instagram.com/positivo_inc/',iconslink:''},
+  //     {socialMedia:'linkind',links:' https://www.linkedin.com/in/kofi-takyi-8b4478a4/',iconslink:''}
+  //   ]},
 
-    {id:2,name:'Frank Jeslove',possition:'Developer',description:'Explicabo voluptatem mollitia et repellat qui dolorum quasi',
-    ImageFile:'../../assets/team/team-2.jpg', 
-    followers:[
-      {socialMedia:'facebook',links:'',iconslink:''},
-      {socialMedia:'instergram',links:'',iconslink:''},
-      {socialMedia:'linkind',links:'',iconslink:''}
-    ]},
+  //   {id:2,name:'Frank Jeslove',possition:'Developer',description:'Explicabo voluptatem mollitia et repellat qui dolorum quasi',
+  //   ImageFile:'../../assets/team/team-2.jpg', 
+  //   followers:[
+  //     {socialMedia:'facebook',links:'',iconslink:''},
+  //     {socialMedia:'instergram',links:'',iconslink:''},
+  //     {socialMedia:'linkind',links:'',iconslink:''}
+  //   ]},
 
-    {id:3,name:'Alexander AKA Shark Slayer',possition:'Chief Technology Officer (CTO)',description:'Explicabo voluptatem mollitia et repellat qui dolorum quasi',
-    ImageFile:'../../assets/team/team-3.jpg', 
-    followers:[
-      {socialMedia:'facebook',links:'',iconslink:''},
-      {socialMedia:'instergram',links:'',iconslink:''},
-      {socialMedia:'linkind',links:'',iconslink:''}
-    ]},
+  //   {id:3,name:'Alexander AKA Shark Slayer',possition:'Chief Technology Officer (CTO)',description:'Explicabo voluptatem mollitia et repellat qui dolorum quasi',
+  //   ImageFile:'../../assets/team/team-3.jpg', 
+  //   followers:[
+  //     {socialMedia:'facebook',links:'',iconslink:''},
+  //     {socialMedia:'instergram',links:'',iconslink:''},
+  //     {socialMedia:'linkind',links:'',iconslink:''}
+  //   ]},
 
-    {id:4,name:'Caleb Lasmonthy',possition:'Software Engineer',description:'Explicabo voluptatem mollitia et repellat qui dolorum quasi',
-    ImageFile:'../../assets/team/team-4.jpg', 
-    followers:[
-      {socialMedia:'facebook',links:'',iconslink:''},
-      {socialMedia:'instergram',links:'',iconslink:''},
-      {socialMedia:'linkind',links:'',iconslink:''}
-    ]},
+  //   {id:4,name:'Caleb Lasmonthy',possition:'Software Engineer',description:'Explicabo voluptatem mollitia et repellat qui dolorum quasi',
+  //   ImageFile:'../../assets/team/team-4.jpg', 
+  //   followers:[
+  //     {socialMedia:'facebook',links:'',iconslink:''},
+  //     {socialMedia:'instergram',links:'',iconslink:''},
+  //     {socialMedia:'linkind',links:'',iconslink:''}
+  //   ]},
 
-    {id:5,name:'Woolf Kalime',possition:'Project Manager',description:'Explicabo voluptatem mollitia et repellat qui dolorum quasi',
-    ImageFile:'../../assets/team/team-1.jpg',
-    followers:[
-      {socialMedia:'facebook',links:'',iconslink:'faCoffee'},
-      {socialMedia:'instergram',links:'',iconslink:''},
-      {socialMedia:'linkind',links:'',iconslink:''}
-    ]}
+  //   {id:5,name:'Woolf Kalime',possition:'Project Manager',description:'Explicabo voluptatem mollitia et repellat qui dolorum quasi',
+  //   ImageFile:'../../assets/team/team-1.jpg',
+  //   followers:[
+  //     {socialMedia:'facebook',links:'',iconslink:'faCoffee'},
+  //     {socialMedia:'instergram',links:'',iconslink:''},
+  //     {socialMedia:'linkind',links:'',iconslink:''}
+  //   ]}
 
-  ]
+  // ]
 
  
 
@@ -135,6 +139,29 @@ export class DataServicesService {
 
   ]
 
+
   peoductData = this.dataProjects;
 
+  // API calls
+
+  getSubscribe()
+  {
+    return this.http.get<Profiling[]>('https://africcraft.com/en/login/getme');
+  }
+
+  createPost(profiling: Profiling)
+  {
+    return this.http.post('http://localhost/companyfiles/api/home/addcats',profiling);
+  }
+
+
+  createContact(profiling: Profiling)
+  {
+    return this.http.post('http://localhost/companyfiles/api/home/addcontact',profiling);
+  }
+
+  getTeams()
+  {
+    return this.http.get('http://localhost/companyfiles/api/response/loadteams');
+  }
 }

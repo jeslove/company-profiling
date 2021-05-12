@@ -15,6 +15,8 @@ import { FooterComponent } from './footer/footer.component';
 import { DataServicesService } from './data-services.service';
 import { FontAwesomeModule,FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+import {FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClient, HttpClientModule} from '@angular/common/http';
 
 
 @NgModule({
@@ -33,10 +35,14 @@ import { faCoffee } from '@fortawesome/free-solid-svg-icons';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [
-    DataServicesService
+    DataServicesService,
+    HttpClient
   ],
   bootstrap: [AppComponent]
 })
